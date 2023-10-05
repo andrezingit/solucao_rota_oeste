@@ -8,7 +8,7 @@
 
 Site Rota Oeste: https://www.rotaoestemaquinas.com.br/ caso precise para visualizar layout.
 
-**Front-end**
+**Front-end** (Dyllan e Thyago)
 
 1° → Curso de Programação com Dart - 2022
 https://youtube.com/playlist?list=PLRpTFz5_57cseSiszvssXO7HKVzOsrI77
@@ -31,11 +31,13 @@ https://youtube.com/playlist?list=PLRpTFz5_57cufduUDgiZZqA_k5Q7UV_50
 7° → Dart Backend - 2022
 https://youtube.com/playlist?list=PLRpTFz5_57csByx34C_98wPn3PAxnUDFr
 
+
 **Protótipo do sistema:** https://www.figma.com/file/50AobQ6xHsiQnvk3zNcZxS/Untitled?type=design&node-id=0-1&mode=design&t=86H4NbnZ9SKjvbMR-0
 
 
-**Back-end**
+**Back-end** (Eduardo e José)
 
 
 
-**Banco de dados**
+**Banco de dados** (Marcos e Jamily)
+ 
