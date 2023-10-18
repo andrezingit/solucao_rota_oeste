@@ -36,7 +36,7 @@ https://youtube.com/playlist?list=PLRpTFz5_57csByx34C_98wPn3PAxnUDFr
 
 
 **Back-end** (Eduardo e José)
-
+Necessário alterar string de conexão (connectionString) em Program.cs indicando seu servidor local ou banco que utilizará após criar o banco de dados em sqlServer.
 
 
 **Banco de dados** (Marcos e Jamily)
