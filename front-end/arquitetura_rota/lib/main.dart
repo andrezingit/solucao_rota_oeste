@@ -1,6 +1,5 @@
 import 'package:arquitetura_rota/telas/tela_login.dart';
-import 'package:arquitetura_rota/telas/tela_ultimos_alertas.dart';
-import 'package:arquitetura_rota/telas/tela_resultado_pesquisa.dart';
+import 'package:arquitetura_rota/telas/tela_principal.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(body: TelaLogin()),
       routes: {
-        '/resultadoPesquisa': (context) => TelaResultadoPesquisa(),
-        '/home': (context) => TelaUltimosAlertas(),
+        '/home': (context) => TelaPrincipal(),
         '/login': (context) => const TelaLogin(),
       },
       debugShowCheckedModeBanner: false,
