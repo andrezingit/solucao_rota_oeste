@@ -22,7 +22,7 @@ class TelaUltimosAlertas extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Menu(
-                      tela: "ultimosalertas",
+                      tela: "ultimosalertas", onUltimosAlertasPressed: () {  },
                     ),
                     CorpoTela(
                       "Últimos Alertas",

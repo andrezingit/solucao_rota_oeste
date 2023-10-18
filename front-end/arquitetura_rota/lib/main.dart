@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(body: TelaLogin()),
       routes: {
+        '/resultadoPesquisa': (context) => TelaResultadoPesquisa(),
         '/home': (context) => TelaUltimosAlertas(),
         '/login': (context) => const TelaLogin(),
       },

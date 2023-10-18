@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 class MenuButton extends StatelessWidget {
   final String buttonTitle;
-
   final bool activated;
+  final Function() onUltimosAlertasPressed;
 
-  const MenuButton(this.buttonTitle, this.activated, {Key? key})
+  const MenuButton(this.buttonTitle, this.activated, this.onUltimosAlertasPressed, {Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onUltimosAlertasPressed,
       child: this.activated
           ? _ButtonActivated(buttonTitle)
           : _ButtonDisabled(buttonTitle),
