@@ -1,0 +1,99 @@
+
+PRINT 'Creating database...'
+CREATE DATABASE bdArq;
+GO
+
+PRINT 'Setting database as current...'
+
+USE bdArq;
+GO
+
+PRINT 'Creating admin user...'
+
+CREATE LOGIN adm WITH PASSWORD = 'rotaAdm123';
+GO
+
+PRINT 'Granting sysadmin role to admin user...'
+
+ALTER SERVER ROLE sysadmin ADD MEMBER adm;
+GO
+
+PRINT 'Creating Users table...'
+
+CREATE TABLE Users
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    Password NVARCHAR(128) NOT NULL,
+    UserType NVARCHAR(50) NOT NULL,
+    Email NVARCHAR(255) NOT NULL UNIQUE,
+    Token NVARCHAR(255)
+);
+CREATE INDEX idx_username ON Users (Username);
+CREATE INDEX idx_email ON Users (Email);
+
+INSERT INTO Users (Username,Password,UserType,Email) values ('admin','6a3e9f12d8c7b0a4f5b7c4e2','Admin','admin@rotaOeste.com');
+go
+
+CREATE TABLE Alerts (
+    Id Int PRIMARY KEY,
+    Type NVARCHAR(50),
+    DurationType NVARCHAR(50),
+    DurationValue FLOAT,
+    DurationUnit NVARCHAR(50),
+    Occurrences NVARCHAR(50),
+    EngineHoursType NVARCHAR(50),
+    EngineHoursValue FLOAT,
+    EngineHoursUnit NVARCHAR(50),
+    MachineLinearTime INT,
+    Bus Int,
+    Time DATETIME,
+    LocationType NVARCHAR(50),
+    Lat FLOAT,
+    Lon FLOAT,
+    Color NVARCHAR(50),
+    Severity NVARCHAR(50),
+    AcknowledgementStatus NVARCHAR(50),
+    Ignored BIT,
+    Invisible BIT,
+    LinkType NVARCHAR(50),
+    LinkRel NVARCHAR(50),
+    LinkUri NVARCHAR(255),
+    DefinitionLinkType NVARCHAR(50),
+    DefinitionLinkRel NVARCHAR(50),
+    DefinitionLinkUri NVARCHAR(255),
+    DefinitionId Int,
+    DefinitionType NVARCHAR(50),
+    DefinitionSuspectParameterName NVARCHAR(50),
+    DefinitionFailureModeIndicator NVARCHAR(50),
+    DefinitionBus Int,
+    DefinitionSourceAddress NVARCHAR(50),
+    DefinitionThreeLetterAcronym NVARCHAR(50),
+    DefinitionDescription NVARCHAR(MAX),
+);
+
+CREATE INDEX IDX_AlertsID ON Alerts (Id);
+CREATE INDEX IDX_Alerts_Type ON Alerts (Type);
+CREATE INDEX IDX_Alerts_Color ON Alerts (Color);
+CREATE INDEX IDX_Alerts_Severity ON Alerts (Severity);
+CREATE INDEX IDX_Alerts_Time ON Alerts (Time);
+
+CREATE TABLE Encaminhamento
+(
+    IdEncaminhamento INT IDENTITY(1,1) PRIMARY KEY,
+    AlertId INT,
+    IdUsuario NVARCHAR(255),
+    Motivo NVARCHAR(MAX),
+    IdEmpresa INT,
+    EncaminhamentoAtivo BIT,
+    DataInclusao DATETIME,
+    DataAlteracao DATETIME,
+    UsuarioInc NVARCHAR(255),
+    UsuarioAlt NVARCHAR(255),
+    OrigemRetorno INT,
+    FOREIGN KEY (AlertId) REFERENCES Alerts(Id)
+);
+CREATE INDEX IDX_Encaminhamento ON Encaminhamento (IdEncaminhamento);
+CREATE INDEX IDX_Encaminhamento_AlertID ON Encaminhamento (AlertId);
+
+PRINT 'Initialization script completed successfully.'
