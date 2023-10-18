@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(body: TelaLogin()),
+      routes: {
+        '/home': (context) => TelaUltimosAlertas(),
+        '/login': (context) => const TelaLogin(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
