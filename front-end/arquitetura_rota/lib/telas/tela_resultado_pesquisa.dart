@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 class TelaResultadoPesquisa extends StatelessWidget {
   const TelaResultadoPesquisa({Key? key}) : super(key: key);
 
+  void navigateToUltimosAlertas(BuildContext context) {
+    Navigator.of(context).pushNamed('/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +26,7 @@ class TelaResultadoPesquisa extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Menu(
-                      tela: "resultadopesquisa",
+                      tela: "Últimos alertas", onUltimosAlertasPressed: () {navigateToUltimosAlertas(context);},
                     ),
                     CorpoTela(
                       "Pesquisar",
